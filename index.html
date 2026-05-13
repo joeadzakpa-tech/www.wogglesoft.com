@@ -252,7 +252,10 @@
   /* Hero illustration */
   .hero-viz {
     position: relative;
-    height: 500px;
+    height: 540px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .viz-card {
     position: absolute;
@@ -337,27 +340,33 @@
   }
   .viz-stat-val {
     font-family: var(--font-display);
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--ink);
     margin-top: 3px;
     letter-spacing: -0.02em;
   }
+  .viz-stat-val small { font-size: 12px; font-weight: 500; color: var(--muted); margin-left: 2px; }
   .viz-stat-trend {
     font-size: 10px;
     color: var(--green);
     font-weight: 700;
+    margin-top: 2px;
+    display: block;
   }
+  .viz-stat-trend.down { color: var(--accent); }
   .viz-chart {
     position: relative;
     background: linear-gradient(180deg, rgba(243,244,251,0.6), rgba(243,244,251,0.2));
     border-radius: 10px;
     padding: 14px;
     border: 1px solid rgba(232,234,243,0.5);
+    overflow: hidden;
   }
   .viz-chart-svg {
     width: 100%;
     height: 100%;
+    display: block;
   }
   .chart-line {
     fill: none;
@@ -457,6 +466,7 @@
   .terminal-prompt { color: var(--green); }
   .terminal-cmd { color: #fff; }
   .terminal-output { color: rgba(255,255,255,0.5); }
+  .terminal-output.ok { color: var(--green); }
   .terminal-cursor {
     display: inline-block;
     width: 7px; height: 12px;
@@ -469,8 +479,9 @@
     position: absolute;
     top: 0;
     right: 20px;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.92);
     backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255,255,255,0.6);
     border-radius: 14px;
     padding: 14px 16px;
@@ -480,6 +491,7 @@
     align-items: center;
     gap: 12px;
     animation: floatY3 8s ease-in-out infinite;
+    z-index: 3;
   }
   @keyframes floatY3 {
     0%, 100% { transform: translate(0,0); }
@@ -496,6 +508,13 @@
   .notif-text { font-size: 12px; line-height: 1.4; }
   .notif-text strong { display: block; color: var(--ink); font-size: 13px; font-weight: 600; }
   .notif-text span { color: var(--muted); }
+
+  @media (max-width: 768px) {
+    .viz-main { right: 30px; bottom: 80px; }
+    .viz-terminal { width: 220px; }
+    .viz-notif { width: 200px; right: 0; }
+    .viz-stat-val { font-size: 16px; }
+  }
 
   /* Page hero (interior) */
   .page-hero {
@@ -727,9 +746,8 @@
   }
   .case-thumb {
     height: 240px;
-    background: linear-gradient(135deg, var(--ink), var(--accent));
+    background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%);
     display: grid; place-items: center; color: #fff;
-    font-family: var(--font-display); font-size: 32px; letter-spacing: -0.025em; font-weight: 600;
     position: relative; overflow: hidden;
   }
   .case-thumb::before {
@@ -737,20 +755,37 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
-    background-size: 32px 32px;
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
-  .case-thumb span { position: relative; z-index: 1; }
-  .case-thumb.thumb-2 { background: linear-gradient(135deg, #1a1f3a, var(--gold)); }
-  .case-thumb.thumb-3 { background: linear-gradient(135deg, var(--accent-2), var(--green)); }
-  .case-thumb.thumb-4 { background: linear-gradient(135deg, var(--ink), var(--pink)); }
-  .case-thumb.thumb-5 { background: linear-gradient(135deg, #00b87a, var(--teal)); }
-  .case-thumb.thumb-6 { background: linear-gradient(135deg, var(--accent), var(--teal)); }
-  .case-thumb.thumb-7 { background: linear-gradient(135deg, #831843, var(--accent-2)); }
-  .case-thumb.thumb-8 { background: linear-gradient(135deg, var(--gold), var(--coral)); }
-  .case-thumb.thumb-9 { background: linear-gradient(135deg, var(--green), var(--gold)); }
-  .case-thumb.thumb-10 { background: linear-gradient(135deg, var(--teal), var(--coral)); }
+  .case-thumb-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .case-thumb-label {
+    position: absolute;
+    bottom: 18px;
+    left: 22px;
+    z-index: 2;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    padding: 6px 12px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+  }
+  .case-thumb.thumb-2 { background: linear-gradient(135deg, #1a1f3a 0%, #2d1f54 100%); }
+  .case-thumb.thumb-3 { background: linear-gradient(135deg, #0a1f1a 0%, #1a3a30 100%); }
   .case-body { padding: 28px; }
   .case-tag {
     font-size: 11px;
@@ -1326,6 +1361,19 @@
     padding: 40px 36px;
     background: linear-gradient(135deg, rgba(0,0,0,0.25), transparent);
     z-index: 1;
+    overflow: hidden;
+  }
+  .featured-thumb-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .featured-case-thumb > *:not(.featured-thumb-svg) {
+    position: relative;
+    z-index: 2;
   }
   .featured-case-badge {
     font-family: var(--font-mono);
@@ -1334,9 +1382,11 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--gold);
-    padding: 6px 12px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,181,71,0.3);
+    padding: 7px 13px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,181,71,0.4);
     border-radius: 6px;
     align-self: flex-start;
   }
@@ -1347,6 +1397,14 @@
     line-height: 1.1;
     letter-spacing: -0.025em;
     color: #fff;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    align-self: flex-start;
+    max-width: 100%;
   }
   .featured-case-body {
     padding: 44px 40px;
@@ -1574,9 +1632,7 @@
     h1.hero-title { font-size: 42px; }
     h2 { font-size: 30px; }
     .page-hero h1 { font-size: 34px; }
-    .hero-viz { height: 380px; margin-top: 40px; }
-    .viz-main { right: 30px; bottom: 80px; }
-    .viz-terminal { width: 220px; }
+    .hero-viz { height: 420px; margin-top: 40px; }
     nav.primary {
       display: none; position: absolute; top: 100%; left: 0; right: 0;
       background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
@@ -1636,18 +1692,7 @@
     .trust-client { font-size: 14px; }
 
     /* Hero viz — simplified for phone */
-    .hero-viz { height: 300px; margin-top: 32px; }
-    .viz-main { top: 0; left: 0; right: 0; bottom: 0; }
-    .viz-terminal, .viz-notif { display: none; }
-    .viz-stat-val { font-size: 17px; }
-    .viz-stat-label { font-size: 8px; letter-spacing: 0.08em; }
-    .viz-stat-trend { font-size: 9px; }
-    .viz-body { padding: 14px; gap: 10px; }
-    .viz-stat { padding: 9px 10px; }
-    .viz-stat-row { gap: 6px; }
-    .viz-title-bar { font-size: 10px; padding: 4px 10px; }
-    .viz-header { padding: 11px 14px; }
-    .viz-dot { width: 9px; height: 9px; }
+    .hero-viz { height: 340px; margin-top: 32px; }
 
     /* Sections */
     section { padding: 52px 0; }
@@ -1781,7 +1826,7 @@
     .hero-lede { font-size: 15px; }
     .page-hero h1 { font-size: 26px; }
     h2 { font-size: 23px; }
-    .hero-viz { height: 260px; }
+    .hero-viz { height: 280px; }
     .viz-stat-val { font-size: 15px; }
     .viz-stat-label { font-size: 7px; }
     .featured-case-client { font-size: 22px; }
@@ -1877,72 +1922,84 @@
       </div>
 
       <div class="hero-viz">
-        <div class="viz-notif">
-          <div class="notif-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="notif-text">
-            <strong>Deploy successful</strong>
-            <span>Build #2847 · 2 min ago</span>
-          </div>
-        </div>
-
+        <!-- Main dashboard card -->
         <div class="viz-card viz-main">
           <div class="viz-header">
-            <span class="viz-dot r"></span>
-            <span class="viz-dot y"></span>
-            <span class="viz-dot g"></span>
-            <span class="viz-title-bar">analytics.wogglesoft.com</span>
+            <div class="viz-dot r"></div>
+            <div class="viz-dot y"></div>
+            <div class="viz-dot g"></div>
+            <div class="viz-title-bar">analytics.wogglesoft.com</div>
           </div>
           <div class="viz-body">
             <div class="viz-stat-row">
               <div class="viz-stat">
-                <div class="viz-stat-label">Uptime</div>
-                <div class="viz-stat-val">99.98%</div>
-                <div class="viz-stat-trend">↑ 0.04%</div>
+                <div class="viz-stat-label">UPTIME</div>
+                <div class="viz-stat-val">99.98<small>%</small></div>
+                <span class="viz-stat-trend">↑ 0.04%</span>
               </div>
               <div class="viz-stat">
-                <div class="viz-stat-label">Response</div>
-                <div class="viz-stat-val">142<span style="font-size:11px;color:var(--muted)">ms</span></div>
-                <div class="viz-stat-trend">↓ 12ms</div>
+                <div class="viz-stat-label">RESPONSE</div>
+                <div class="viz-stat-val">142<small>ms</small></div>
+                <span class="viz-stat-trend down">↓ 12ms</span>
               </div>
               <div class="viz-stat">
-                <div class="viz-stat-label">Active</div>
+                <div class="viz-stat-label">ACTIVE</div>
                 <div class="viz-stat-val">3,419</div>
-                <div class="viz-stat-trend">↑ 8.2%</div>
+                <span class="viz-stat-trend">↑ 8.2%</span>
               </div>
             </div>
             <div class="viz-chart">
-              <svg class="viz-chart-svg" viewBox="0 0 300 100" preserveAspectRatio="none">
+              <svg class="viz-chart-svg" viewBox="0 0 300 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#5b3df5" stop-opacity="0.3"/>
+                  <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#5b3df5" stop-opacity="0.25"/>
                     <stop offset="100%" stop-color="#5b3df5" stop-opacity="0"/>
                   </linearGradient>
                 </defs>
-                <path class="chart-fill" d="M 0,80 L 30,65 L 60,72 L 90,50 L 120,55 L 150,38 L 180,42 L 210,28 L 240,32 L 270,18 L 300,22 L 300,100 L 0,100 Z"/>
-                <path class="chart-line" d="M 0,80 L 30,65 L 60,72 L 90,50 L 120,55 L 150,38 L 180,42 L 210,28 L 240,32 L 270,18 L 300,22"/>
-                <path class="chart-line chart-line-2" d="M 0,90 L 30,82 L 60,75 L 90,78 L 120,68 L 150,62 L 180,55 L 210,50 L 240,45 L 270,42 L 300,38"/>
+                <!-- Filled area under main line -->
+                <path class="chart-fill" d="M 0,80 L 30,70 L 60,75 L 90,55 L 120,60 L 150,45 L 180,40 L 210,30 L 240,25 L 270,15 L 300,20 L 300,100 L 0,100 Z"/>
+                <!-- Secondary green line -->
+                <path class="chart-line chart-line-2" d="M 0,90 L 30,85 L 60,82 L 90,78 L 120,70 L 150,68 L 180,60 L 210,55 L 240,48 L 270,42 L 300,38"/>
+                <!-- Primary purple line -->
+                <path class="chart-line" d="M 0,80 L 30,70 L 60,75 L 90,55 L 120,60 L 150,45 L 180,40 L 210,30 L 240,25 L 270,15 L 300,20"/>
               </svg>
             </div>
             <div class="viz-bars">
-              <div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div>
-              <div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div>
+              <div class="viz-bar"></div>
+              <div class="viz-bar"></div>
+              <div class="viz-bar"></div>
+              <div class="viz-bar"></div>
+              <div class="viz-bar"></div>
+              <div class="viz-bar"></div>
+              <div class="viz-bar"></div>
+              <div class="viz-bar"></div>
             </div>
           </div>
         </div>
 
+        <!-- Notification card (top right) -->
+        <div class="viz-notif">
+          <div class="notif-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="notif-text">
+            <strong>Deploy succeeded</strong>
+            <span>prod · 2s ago</span>
+          </div>
+        </div>
+
+        <!-- Terminal card (bottom right) -->
         <div class="viz-terminal">
           <div class="terminal-header">
-            <span class="viz-dot r"></span>
-            <span class="viz-dot y"></span>
-            <span class="viz-dot g"></span>
-            <span class="terminal-title">~/wogglesoft</span>
+            <div class="viz-dot r"></div>
+            <div class="viz-dot y"></div>
+            <div class="viz-dot g"></div>
+            <div class="terminal-title">~/wogglesoft</div>
           </div>
           <div class="terminal-body">
             <div><span class="terminal-prompt">$</span> <span class="terminal-cmd">deploy --env=prod</span></div>
             <div><span class="terminal-output">→ Building...</span></div>
-            <div><span class="terminal-output">→ ✓ All checks passed</span></div>
+            <div><span class="terminal-output ok">→ ✓ All checks passed</span></div>
             <div><span class="terminal-prompt">$</span> <span class="terminal-cursor"></span></div>
           </div>
         </div>
@@ -1991,90 +2048,6 @@
           <span class="learn-link">Learn more →</span>
         </article>
       </div>
-    </div>
-  </section>
-
-  <section class="approach-bg">
-    <div class="container">
-      <div class="section-head">
-        <div class="spec-stamp">WS · METHOD · 01</div>
-        <h2>Evidence-led, <em>from first call to handover.</em></h2>
-        <p class="section-lede">Every engagement — whether a fortnight's review or an eighteen-month programme — follows the same disciplined arc. The scale changes; the rigour does not.</p>
-      </div>
-      <div class="steps">
-        <div class="step"><h4>Discover</h4><p>We map the operational reality, the constraints, and the success criteria with the people closest to the work.</p></div>
-        <div class="step"><h4>Design</h4><p>Architecture and user-experience decisions are documented, reviewed, and signed off before code is written.</p></div>
-        <div class="step"><h4>Deliver</h4><p>Iterative builds, automated testing, and weekly demos keep stakeholders close to progress and risk visible.</p></div>
-        <div class="step"><h4>Sustain</h4><p>Handover includes documentation, training, and the option of a managed service tier with clear SLAs.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="partners-section">
-    <div class="container">
-      <div class="section-head">
-        <div class="spec-stamp">WS · NETWORK · SINCE 2019</div>
-        <h2>A boutique firm, with a <em>deliberate network.</em></h2>
-        <p class="section-lede">Since 2019, we have worked alongside a small, deliberately curated set of international delivery partners — chosen for engineering quality, sector fit, and the discipline to scale work without diluting the senior attention that defines our practice. Three have shaped most of what we have shipped.</p>
-      </div>
-
-      <div class="partners-grid">
-        <article class="partner-card">
-          <div class="partner-header">
-            <div class="partner-logo wm">W·M</div>
-            <div class="partner-meta">
-              <div class="partner-role">CO-DELIVERY · ENGINEERING</div>
-              <h3>Webnmobapps Solutions Pvt. Ltd.</h3>
-              <div class="partner-location">Sector 59, Noida · India</div>
-            </div>
-          </div>
-          <p>Our long-standing co-delivery partner for web, mobile, and AI-enabled application engineering. With a substantial bench of engineers and a portfolio that already includes Ghana-facing builds — the Boame mobile app and the Smart Farms platform among them — Webnmobapps gives us elastic delivery capacity for larger programmes without displacing our hands-on involvement at the client interface.</p>
-          <div class="partner-stats">
-            <div><strong>85+</strong><span>Engineers</span></div>
-            <div><strong>2,000+</strong><span>Websites</span></div>
-            <div><strong>100+</strong><span>Mobile apps</span></div>
-          </div>
-          <a class="partner-link" href="https://www.webnmobappssolutions.com/" target="_blank" rel="noopener">Visit webnmobappssolutions.com →</a>
-        </article>
-
-        <article class="partner-card">
-          <div class="partner-header">
-            <div class="partner-logo ai">AI</div>
-            <div class="partner-meta">
-              <div class="partner-role">TRAINING · CAPABILITY</div>
-              <h3>Ai4NoCode</h3>
-              <div class="partner-location">India · AI-first learning platform</div>
-            </div>
-          </div>
-          <p>Our training and capability-building partner. Ai4NoCode powers the curricula behind our corporate training cohorts in Ghana, drawing on a faculty of industry instructors across generative AI, DevOps, cloud computing, IoT, and modern web and mobile stacks. The partnership lets us run cohorts at depth, with instructors who teach from inside the discipline rather than alongside it.</p>
-          <div class="partner-stats">
-            <div><strong>Gen AI</strong><span>Curricula</span></div>
-            <div><strong>DevOps</strong><span>Cloud · IoT</span></div>
-            <div><strong>100+</strong><span>Countries</span></div>
-          </div>
-          <a class="partner-link" href="https://ai4nocode.com/" target="_blank" rel="noopener">Visit ai4nocode.com →</a>
-        </article>
-
-        <article class="partner-card">
-          <div class="partner-header">
-            <div class="partner-logo ep">EP</div>
-            <div class="partner-meta">
-              <div class="partner-role">STEM · ROBOTICS · GLOBAL OPS</div>
-              <h3>Electropro India &amp; Global</h3>
-              <div class="partner-location">Hyderabad · Accra · Botswana</div>
-            </div>
-          </div>
-          <p>Our long-running collaborator on STEM education, robotics, and embedded-systems work. Operating under the banner of "democratising electronics", Electropro has, since 2016, taken curricula and labs into technical institutions across India, Ghana, and Botswana — PROLAB classrooms, robotics and IoT builds, AI and drone programmes, and industrial automation. The partnership extends our reach into the workshops where the next generation of Ghanaian engineers is being formed.</p>
-          <div class="partner-stats">
-            <div><strong>25,000+</strong><span>Young minds</span></div>
-            <div><strong>7+</strong><span>Countries</span></div>
-            <div><strong>2016</strong><span>Founded</span></div>
-          </div>
-          <a class="partner-link" href="https://electropro.in/" target="_blank" rel="noopener">Visit electropro.in →</a>
-        </article>
-      </div>
-
-      <div class="since-banner">Continuous collaboration since 2019 · Engagements across India, Ghana, Botswana, and the wider African market</div>
     </div>
   </section>
 
@@ -2332,9 +2305,101 @@
 
       <div class="spec-divider"><span>WS · ANONYMISED ENGAGEMENTS · 03</span></div>
 
+      <div class="case-filter" id="caseFilter" role="tablist" aria-label="Filter case studies by practice">
+        <button class="active" data-filter="all" role="tab" aria-selected="true">All engagements</button>
+        <button data-filter="data" role="tab" aria-selected="false">Data &amp; Analytics</button>
+        <button data-filter="software" role="tab" aria-selected="false">Software Engineering</button>
+        <button data-filter="advisory" role="tab" aria-selected="false">Advisory</button>
+      </div>
+
       <div class="case-grid" id="caseGrid">
-        <article class="case-card">
-          <div class="case-thumb"><span>Development Sector</span></div>
+        <article class="case-card" data-category="data">
+          <div class="case-thumb">
+            <svg class="case-thumb-svg" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <linearGradient id="caseGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#5b3df5" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#00d4d4" stop-opacity="0.7"/>
+                </linearGradient>
+              </defs>
+              <!-- District nodes feeding into a central consolidation point -->
+              <!-- Three source nodes (districts) -->
+              <g opacity="0.85">
+                <!-- District 1 -->
+                <circle cx="60" cy="60" r="6" fill="#5b3df5"/>
+                <circle cx="60" cy="60" r="14" fill="none" stroke="#5b3df5" stroke-width="1" opacity="0.4"/>
+                <rect x="36" y="76" width="48" height="6" rx="1" fill="#5b3df5" opacity="0.5"/>
+                <rect x="42" y="86" width="36" height="3" rx="1" fill="#5b3df5" opacity="0.3"/>
+
+                <!-- District 2 -->
+                <circle cx="60" cy="130" r="6" fill="#00d4d4"/>
+                <circle cx="60" cy="130" r="14" fill="none" stroke="#00d4d4" stroke-width="1" opacity="0.4"/>
+                <rect x="36" y="146" width="48" height="6" rx="1" fill="#00d4d4" opacity="0.5"/>
+                <rect x="42" y="156" width="36" height="3" rx="1" fill="#00d4d4" opacity="0.3"/>
+
+                <!-- District 3 -->
+                <circle cx="60" cy="200" r="6" fill="#ffb547"/>
+                <circle cx="60" cy="200" r="14" fill="none" stroke="#ffb547" stroke-width="1" opacity="0.4"/>
+                <rect x="36" y="180" width="48" height="6" rx="1" fill="#ffb547" opacity="0.5"/>
+                <rect x="42" y="170" width="36" height="3" rx="1" fill="#ffb547" opacity="0.3"/>
+              </g>
+
+              <!-- Connecting paths to consolidation -->
+              <g fill="none" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.7">
+                <path d="M 66,60 Q 130,60 170,120" stroke="#5b3df5">
+                  <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="2s" repeatCount="indefinite"/>
+                </path>
+                <path d="M 66,130 L 170,130" stroke="#00d4d4">
+                  <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="2.2s" repeatCount="indefinite"/>
+                </path>
+                <path d="M 66,200 Q 130,200 170,140" stroke="#ffb547">
+                  <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="1.9s" repeatCount="indefinite"/>
+                </path>
+              </g>
+
+              <!-- Central consolidation hub -->
+              <g transform="translate(190, 100)">
+                <rect width="80" height="60" rx="4" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+                <rect x="6" y="8" width="68" height="3" rx="1" fill="#ffffff" opacity="0.7"/>
+                <rect x="6" y="16" width="48" height="3" rx="1" fill="#ffffff" opacity="0.5"/>
+                <rect x="6" y="24" width="58" height="3" rx="1" fill="#ffffff" opacity="0.6"/>
+                <rect x="6" y="32" width="42" height="3" rx="1" fill="#ffffff" opacity="0.4"/>
+                <rect x="6" y="40" width="62" height="3" rx="1" fill="#ffffff" opacity="0.55"/>
+                <rect x="6" y="48" width="38" height="3" rx="1" fill="#ffffff" opacity="0.4"/>
+                <text x="40" y="-6" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8" font-family="'JetBrains Mono', monospace" letter-spacing="1">CONSOLIDATE</text>
+              </g>
+
+              <!-- Output to dashboard -->
+              <path d="M 270,130 L 310,130" stroke="#00e599" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.8" fill="none">
+                <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="1.6s" repeatCount="indefinite"/>
+              </path>
+
+              <!-- Dashboard mini -->
+              <g transform="translate(310, 80)">
+                <rect width="80" height="100" rx="6" fill="rgba(0,229,153,0.1)" stroke="#00e599" stroke-width="1.5"/>
+                <!-- Mini chart bars -->
+                <rect x="10" y="60" width="8" height="28" fill="#00e599" opacity="0.7"/>
+                <rect x="22" y="48" width="8" height="40" fill="#00e599" opacity="0.85"/>
+                <rect x="34" y="38" width="8" height="50" fill="#00e599"/>
+                <rect x="46" y="52" width="8" height="36" fill="#00e599" opacity="0.75"/>
+                <rect x="58" y="42" width="8" height="46" fill="#00e599" opacity="0.9"/>
+                <!-- Headers -->
+                <rect x="8" y="10" width="40" height="3" rx="1" fill="#ffffff" opacity="0.7"/>
+                <rect x="8" y="18" width="28" height="2" rx="1" fill="#ffffff" opacity="0.4"/>
+                <!-- Big number -->
+                <text x="40" y="34" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700" font-family="'Fraunces', Georgia, serif">11 DAYS</text>
+              </g>
+
+              <!-- Floating data particles -->
+              <g fill="#ffffff" opacity="0.3">
+                <circle cx="120" cy="40" r="1.5"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/></circle>
+                <circle cx="220" cy="50" r="1.5"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.4s" repeatCount="indefinite" begin="0.3s"/></circle>
+                <circle cx="150" cy="210" r="1.5"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.2s" repeatCount="indefinite" begin="0.7s"/></circle>
+                <circle cx="290" cy="60" r="1.5"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.6s" repeatCount="indefinite" begin="1s"/></circle>
+              </g>
+            </svg>
+            <div class="case-thumb-label">M&amp;E · 3 REGIONS → DASHBOARD</div>
+          </div>
           <div class="case-body">
             <span class="case-tag">Data &amp; Analytics · Field Tooling</span>
             <h3>Quarterly M&amp;E reporting, from three weeks to eleven days</h3>
@@ -2343,8 +2408,94 @@
           </div>
         </article>
 
-        <article class="case-card">
-          <div class="case-thumb thumb-2"><span>Professional Association</span></div>
+        <article class="case-card" data-category="software">
+          <div class="case-thumb thumb-2">
+            <svg class="case-thumb-svg" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <!-- Old WordPress site (left) being replaced by clean portal (right) -->
+
+              <!-- Legacy site frame (cluttered, faded) -->
+              <g opacity="0.45" transform="translate(30, 40)">
+                <rect width="140" height="160" rx="6" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <!-- Browser bar -->
+                <rect x="0" y="0" width="140" height="14" rx="6" fill="rgba(255,255,255,0.08)"/>
+                <circle cx="8" cy="7" r="2" fill="#ff6b6b" opacity="0.6"/>
+                <circle cx="15" cy="7" r="2" fill="#ffb547" opacity="0.6"/>
+                <circle cx="22" cy="7" r="2" fill="#00e599" opacity="0.6"/>
+                <!-- Messy content blocks -->
+                <rect x="8" y="22" width="60" height="6" rx="1" fill="rgba(255,255,255,0.3)"/>
+                <rect x="74" y="22" width="44" height="6" rx="1" fill="rgba(255,255,255,0.2)"/>
+                <rect x="8" y="34" width="50" height="4" rx="1" fill="rgba(255,255,255,0.2)"/>
+                <rect x="8" y="44" width="124" height="20" rx="2" fill="rgba(255,107,107,0.25)"/>
+                <rect x="8" y="70" width="58" height="40" rx="2" fill="rgba(255,255,255,0.1)"/>
+                <rect x="72" y="70" width="60" height="14" rx="2" fill="rgba(255,255,255,0.12)"/>
+                <rect x="72" y="88" width="50" height="6" rx="1" fill="rgba(255,255,255,0.15)"/>
+                <rect x="72" y="98" width="55" height="6" rx="1" fill="rgba(255,255,255,0.12)"/>
+                <rect x="8" y="118" width="124" height="6" rx="1" fill="rgba(255,255,255,0.1)"/>
+                <rect x="8" y="128" width="80" height="4" rx="1" fill="rgba(255,255,255,0.1)"/>
+                <rect x="8" y="138" width="124" height="14" rx="2" fill="rgba(255,181,71,0.2)"/>
+
+                <!-- "2014" stamp -->
+                <text x="70" y="178" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="'JetBrains Mono', monospace" letter-spacing="1">LEGACY · 2014</text>
+              </g>
+
+              <!-- Arrow / transformation -->
+              <g transform="translate(195, 115)" opacity="0.8">
+                <path d="M 0,5 L 20,5" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="2 3" fill="none">
+                  <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="1.5s" repeatCount="indefinite"/>
+                </path>
+                <polygon points="18,0 24,5 18,10" fill="#ffffff"/>
+              </g>
+
+              <!-- New portal (right) - crisp, organised -->
+              <g transform="translate(230, 40)">
+                <rect width="140" height="160" rx="6" fill="rgba(91,61,245,0.08)" stroke="#5b3df5" stroke-width="1.5"/>
+                <!-- Browser bar -->
+                <rect x="0" y="0" width="140" height="14" rx="6" fill="rgba(91,61,245,0.2)"/>
+                <circle cx="8" cy="7" r="2" fill="#ff6b6b"/>
+                <circle cx="15" cy="7" r="2" fill="#ffb547"/>
+                <circle cx="22" cy="7" r="2" fill="#00e599"/>
+                <rect x="32" y="3" width="100" height="8" rx="2" fill="rgba(255,255,255,0.1)"/>
+
+                <!-- Clean nav -->
+                <rect x="8" y="22" width="124" height="3" rx="1" fill="rgba(255,255,255,0.4)"/>
+
+                <!-- Hero block -->
+                <rect x="8" y="32" width="124" height="32" rx="3" fill="rgba(91,61,245,0.3)"/>
+                <rect x="14" y="40" width="60" height="4" rx="1" fill="#ffffff" opacity="0.9"/>
+                <rect x="14" y="48" width="80" height="3" rx="1" fill="#ffffff" opacity="0.5"/>
+                <rect x="14" y="55" width="30" height="5" rx="2" fill="#5b3df5"/>
+
+                <!-- Member portal cards (3) -->
+                <rect x="8" y="70" width="38" height="34" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+                <circle cx="16" cy="78" r="3" fill="#5b3df5"/>
+                <rect x="12" y="86" width="30" height="3" rx="1" fill="#ffffff" opacity="0.6"/>
+                <rect x="12" y="93" width="22" height="2" rx="1" fill="#ffffff" opacity="0.4"/>
+
+                <rect x="51" y="70" width="38" height="34" rx="3" fill="rgba(0,229,153,0.1)" stroke="rgba(0,229,153,0.3)" stroke-width="0.5"/>
+                <circle cx="59" cy="78" r="3" fill="#00e599"/>
+                <rect x="55" y="86" width="30" height="3" rx="1" fill="#ffffff" opacity="0.6"/>
+                <rect x="55" y="93" width="22" height="2" rx="1" fill="#ffffff" opacity="0.4"/>
+
+                <rect x="94" y="70" width="38" height="34" rx="3" fill="rgba(255,181,71,0.1)" stroke="rgba(255,181,71,0.3)" stroke-width="0.5"/>
+                <circle cx="102" cy="78" r="3" fill="#ffb547"/>
+                <rect x="98" y="86" width="30" height="3" rx="1" fill="#ffffff" opacity="0.6"/>
+                <rect x="98" y="93" width="22" height="2" rx="1" fill="#ffffff" opacity="0.4"/>
+
+                <!-- Subscription renewal status -->
+                <rect x="8" y="112" width="124" height="40" rx="3" fill="rgba(0,229,153,0.08)" stroke="rgba(0,229,153,0.3)" stroke-width="0.5"/>
+                <rect x="14" y="118" width="50" height="3" rx="1" fill="#ffffff" opacity="0.7"/>
+                <text x="125" y="123" text-anchor="end" fill="#00e599" font-size="7" font-family="'JetBrains Mono', monospace" font-weight="600">✓ AUTO</text>
+                <!-- progress bar -->
+                <rect x="14" y="128" width="104" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+                <rect x="14" y="128" width="92" height="4" rx="2" fill="#00e599">
+                  <animate attributeName="width" values="0;92;92" keyTimes="0;0.7;1" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="14" y="138" width="80" height="3" rx="1" fill="#ffffff" opacity="0.4"/>
+                <rect x="14" y="144" width="60" height="2" rx="1" fill="#ffffff" opacity="0.3"/>
+              </g>
+            </svg>
+            <div class="case-thumb-label">REBUILD · WORDPRESS → PORTAL</div>
+          </div>
           <div class="case-body">
             <span class="case-tag">Software Engineering · Member Portal</span>
             <h3>A member portal rebuilt around the secretariat, not the supplier</h3>
@@ -2353,8 +2504,88 @@
           </div>
         </article>
 
-        <article class="case-card">
-          <div class="case-thumb thumb-3"><span>Mid-Sized Institution</span></div>
+        <article class="case-card" data-category="advisory">
+          <div class="case-thumb thumb-3">
+            <svg class="case-thumb-svg" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <!-- Two contradicting reports → semantic layer → one figure -->
+
+              <!-- Report A (top left) - shows one figure -->
+              <g transform="translate(30, 30)">
+                <rect width="110" height="68" rx="4" fill="rgba(255,107,107,0.08)" stroke="#ff6b6b" stroke-width="1.2"/>
+                <rect x="6" y="6" width="40" height="3" rx="1" fill="#ffffff" opacity="0.7"/>
+                <rect x="6" y="12" width="60" height="2" rx="1" fill="#ffffff" opacity="0.4"/>
+                <rect x="6" y="20" width="90" height="2" rx="1" fill="#ffffff" opacity="0.3"/>
+                <rect x="6" y="26" width="80" height="2" rx="1" fill="#ffffff" opacity="0.3"/>
+                <!-- The disputed figure -->
+                <text x="55" y="50" text-anchor="middle" fill="#ff6b6b" font-size="18" font-weight="700" font-family="'Fraunces', Georgia, serif">₵ 2.41M</text>
+                <text x="55" y="61" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="6" font-family="'JetBrains Mono', monospace" letter-spacing="1">REPORT · A</text>
+              </g>
+
+              <!-- Report B (bottom left) - shows different figure -->
+              <g transform="translate(30, 142)">
+                <rect width="110" height="68" rx="4" fill="rgba(255,181,71,0.08)" stroke="#ffb547" stroke-width="1.2"/>
+                <rect x="6" y="6" width="40" height="3" rx="1" fill="#ffffff" opacity="0.7"/>
+                <rect x="6" y="12" width="60" height="2" rx="1" fill="#ffffff" opacity="0.4"/>
+                <rect x="6" y="20" width="90" height="2" rx="1" fill="#ffffff" opacity="0.3"/>
+                <rect x="6" y="26" width="80" height="2" rx="1" fill="#ffffff" opacity="0.3"/>
+                <!-- Different figure -->
+                <text x="55" y="50" text-anchor="middle" fill="#ffb547" font-size="18" font-weight="700" font-family="'Fraunces', Georgia, serif">₵ 2.58M</text>
+                <text x="55" y="61" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="6" font-family="'JetBrains Mono', monospace" letter-spacing="1">REPORT · B</text>
+              </g>
+
+              <!-- Conflict marker between them -->
+              <g transform="translate(145, 113)">
+                <text x="0" y="4" fill="#ff6b6b" font-size="14" font-weight="700">≠</text>
+              </g>
+
+              <!-- Arrows to semantic layer -->
+              <g fill="none" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.7">
+                <path d="M 140,64 Q 180,64 200,100" stroke="#ff6b6b">
+                  <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="2s" repeatCount="indefinite"/>
+                </path>
+                <path d="M 140,176 Q 180,176 200,140" stroke="#ffb547">
+                  <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="2.2s" repeatCount="indefinite"/>
+                </path>
+              </g>
+
+              <!-- Semantic layer (center) -->
+              <g transform="translate(195, 88)">
+                <rect width="80" height="64" rx="6" fill="rgba(91,61,245,0.15)" stroke="#5b3df5" stroke-width="1.5"/>
+                <text x="40" y="14" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="7" font-family="'JetBrains Mono', monospace" letter-spacing="1">SEMANTIC</text>
+                <text x="40" y="22" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="7" font-family="'JetBrains Mono', monospace" letter-spacing="1">LAYER</text>
+                <!-- Hierarchical lines -->
+                <line x1="14" y1="32" x2="66" y2="32" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+                <line x1="14" y1="38" x2="56" y2="38" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+                <line x1="20" y1="44" x2="60" y2="44" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+                <line x1="20" y1="50" x2="48" y2="50" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+                <!-- Lock/steward icon -->
+                <circle cx="40" cy="56" r="3" fill="#5b3df5"/>
+              </g>
+
+              <!-- Arrow to unified figure -->
+              <path d="M 275,120 L 305,120" stroke="#00e599" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.8" fill="none">
+                <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="1.6s" repeatCount="indefinite"/>
+              </path>
+
+              <!-- Final unified figure (right) -->
+              <g transform="translate(305, 70)">
+                <rect width="80" height="100" rx="6" fill="rgba(0,229,153,0.12)" stroke="#00e599" stroke-width="1.5"/>
+                <text x="40" y="18" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="7" font-family="'JetBrains Mono', monospace" letter-spacing="1">CONSOLIDATED</text>
+                <text x="40" y="48" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700" font-family="'Fraunces', Georgia, serif">₵ 2.49M</text>
+                <line x1="14" y1="58" x2="66" y2="58" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+                <text x="40" y="74" text-anchor="middle" fill="#00e599" font-size="8" font-weight="600" font-family="'Inter', sans-serif">✓ ONE FIGURE</text>
+                <text x="40" y="86" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="6" font-family="'JetBrains Mono', monospace" letter-spacing="0.5">CLOSE &lt; 1 DAY</text>
+              </g>
+
+              <!-- Floating particles -->
+              <g fill="#ffffff" opacity="0.25">
+                <circle cx="180" cy="40" r="1.5"><animate attributeName="opacity" values="0.25;0.7;0.25" dur="2s" repeatCount="indefinite"/></circle>
+                <circle cx="240" cy="200" r="1.5"><animate attributeName="opacity" values="0.25;0.7;0.25" dur="2.4s" repeatCount="indefinite" begin="0.4s"/></circle>
+                <circle cx="160" cy="220" r="1.5"><animate attributeName="opacity" values="0.25;0.7;0.25" dur="2.2s" repeatCount="indefinite" begin="0.8s"/></circle>
+              </g>
+            </svg>
+            <div class="case-thumb-label">DIAGNOSTIC · 2 REPORTS → 1 FIGURE</div>
+          </div>
           <div class="case-body">
             <span class="case-tag">Data &amp; Analytics · Semantic Layer</span>
             <h3>Two reports, one figure — finally</h3>
@@ -2404,6 +2635,23 @@
       </aside>
     </div>
   </section>
+
+  <section class="approach-bg">
+    <div class="container">
+      <div class="section-head">
+        <div class="spec-stamp">WS · METHOD · 01</div>
+        <h2>Evidence-led, <em>from first call to handover.</em></h2>
+        <p class="section-lede">Every engagement — whether a fortnight's review or an eighteen-month programme — follows the same disciplined arc. The scale changes; the rigour does not.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h4>Discover</h4><p>We map the operational reality, the constraints, and the success criteria with the people closest to the work.</p></div>
+        <div class="step"><h4>Design</h4><p>Architecture and user-experience decisions are documented, reviewed, and signed off before code is written.</p></div>
+        <div class="step"><h4>Deliver</h4><p>Iterative builds, automated testing, and weekly demos keep stakeholders close to progress and risk visible.</p></div>
+        <div class="step"><h4>Sustain</h4><p>Handover includes documentation, training, and the option of a managed service tier with clear SLAs.</p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="partners-section">
     <div class="container">
       <div class="section-head">
