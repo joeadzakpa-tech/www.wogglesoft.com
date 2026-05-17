@@ -102,11 +102,7 @@
 }
 </script>
 
-<!-- Fonts: preconnect + single async stylesheet (no preload, no duplicate links) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all';this.onload=null;">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"></noscript>
+<!-- Fonts: loaded via JavaScript after first paint, no preload, no @import, no render-blocking link -->
 
 <style>
   :root {
@@ -4028,6 +4024,18 @@
 
   // Initialise SEO for the home page on first load
   updatePageMeta('home');
+
+  // ============== FONT LOADING ==============
+  // Inject the Google Fonts stylesheet via JavaScript after the document is
+  // interactive. This guarantees a single request, no preload warnings, and
+  // no render-blocking behaviour. The page renders in system fonts first and
+  // swaps to Fraunces/Inter/JetBrains Mono when they arrive.
+  (function loadFonts() {
+    var fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap';
+    document.head.appendChild(fontLink);
+  })();
 </script>
 
 </body>
