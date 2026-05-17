@@ -26,6 +26,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%235b3df5'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='bold' fill='white'%3EW%3C/text%3E%3C/svg%3E">
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
   :root {
     --ink: #0a0e27;
     --ink-2: #1a1f3a;
@@ -53,7 +54,6 @@
     --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-mono: "JetBrains Mono", "SF Mono", "Monaco", "Consolas", monospace;
   }
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
@@ -466,7 +466,9 @@
   .terminal-prompt { color: var(--green); }
   .terminal-cmd { color: #fff; }
   .terminal-output { color: rgba(255,255,255,0.5); }
-  .terminal-output.ok { color: var(--green); }
+  .terminal-output.ok { color: rgba(255,255,255,0.55); }
+  .terminal-output.ok::first-letter { color: rgba(255,255,255,0.5); }
+  .terminal-check { color: var(--green); margin-right: 4px; }
   .terminal-cursor {
     display: inline-block;
     width: 7px; height: 12px;
@@ -477,8 +479,8 @@
   @keyframes blink { 50% { opacity: 0; } }
   .viz-notif {
     position: absolute;
-    top: 0;
-    right: 20px;
+    top: -28px;
+    right: 30px;
     background: rgba(255,255,255,0.92);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -1999,7 +2001,7 @@
           <div class="terminal-body">
             <div><span class="terminal-prompt">$</span> <span class="terminal-cmd">deploy --env=prod</span></div>
             <div><span class="terminal-output">→ Building...</span></div>
-            <div><span class="terminal-output ok">→ ✓ All checks passed</span></div>
+            <div><span class="terminal-output">→ <span class="terminal-check">✓</span>All checks passed</span></div>
             <div><span class="terminal-prompt">$</span> <span class="terminal-cursor"></span></div>
           </div>
         </div>
@@ -3047,26 +3049,26 @@
           <div class="form-row">
             <div class="field">
               <label for="fname">First name</label>
-              <input type="text" id="fname" required>
+              <input type="text" id="fname" name="fname" autocomplete="given-name" required>
             </div>
             <div class="field">
               <label for="lname">Last name</label>
-              <input type="text" id="lname" required>
+              <input type="text" id="lname" name="lname" autocomplete="family-name" required>
             </div>
           </div>
           <div class="form-row">
             <div class="field">
               <label for="email">Work email</label>
-              <input type="email" id="email" required>
+              <input type="email" id="email" name="email" autocomplete="email" required>
             </div>
             <div class="field">
               <label for="org">Organisation</label>
-              <input type="text" id="org">
+              <input type="text" id="org" name="org" autocomplete="organization">
             </div>
           </div>
           <div class="field">
             <label for="topic">What would you like to discuss?</label>
-            <select id="topic">
+            <select id="topic" name="topic">
               <option>Software engineering</option>
               <option>Data &amp; analytics</option>
               <option>Infrastructure &amp; security</option>
@@ -3077,7 +3079,7 @@
           </div>
           <div class="field">
             <label for="msg">Tell us more</label>
-            <textarea id="msg" placeholder="A few sentences about the problem you are trying to solve, the timeline, and any constraints we should know about." required></textarea>
+            <textarea id="msg" name="msg" autocomplete="off" placeholder="A few sentences about the problem you are trying to solve, the timeline, and any constraints we should know about." required></textarea>
           </div>
           <button type="submit" class="cta-btn">Send enquiry</button>
         </form>
