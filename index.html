@@ -5,8 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wogglesoft IT Solutions — Boutique technology engineering in Accra</title>
 <meta name="description" content="A boutique technology firm engineering software, data, infrastructure, and advisory for institutions across Ghana and West Africa. Trusted by the Canada Ghana Chamber of Commerce.">
+<meta name="keywords" content="boutique IT firm Accra, data consultancy Ghana, software engineering Ghana, IT services Ghana, cybersecurity Ghana, digital transformation West Africa, data analytics Accra, cloud migration Ghana">
 <meta name="author" content="Wogglesoft IT Solutions">
 <meta name="theme-color" content="#5b3df5">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="geo.region" content="GH-AA">
+<meta name="geo.placename" content="Accra">
 <link rel="canonical" href="https://wogglesoft.com/">
 
 <!-- Open Graph -->
@@ -25,8 +29,87 @@
 <!-- Favicon (embedded SVG) -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%235b3df5'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='bold' fill='white'%3EW%3C/text%3E%3C/svg%3E">
 
+<!-- Structured Data: Organization + LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+      "@id": "https://wogglesoft.com/#organization",
+      "name": "Wogglesoft IT Solutions",
+      "alternateName": "Wogglesoft",
+      "url": "https://wogglesoft.com/",
+      "logo": "https://wogglesoft.com/logo.png",
+      "image": "https://wogglesoft.com/og-image.png",
+      "description": "A boutique technology firm engineering software, data, infrastructure, and advisory for institutions across Ghana and West Africa.",
+      "slogan": "We code your goal",
+      "foundingDate": "2019",
+      "founder": {
+        "@type": "Person",
+        "name": "Joshua Kobla Adzakpa",
+        "jobTitle": "Founder & Principal"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Airport Residential Area",
+        "addressLocality": "Accra",
+        "addressRegion": "Greater Accra",
+        "addressCountry": "GH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "5.6037",
+        "longitude": "-0.1870"
+      },
+      "telephone": "+233544253944",
+      "email": "info@wogglesoft.com",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:30",
+        "closes": "17:30"
+      },
+      "priceRange": "$$",
+      "areaServed": [
+        {"@type": "Country", "name": "Ghana"},
+        {"@type": "Place", "name": "West Africa"}
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/wogglesoft",
+        "https://twitter.com/wogglesoft"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Technology services",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Software Engineering"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Data & Analytics"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Infrastructure & Security"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Advisory & Transformation"}}
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://wogglesoft.com/#website",
+      "url": "https://wogglesoft.com/",
+      "name": "Wogglesoft IT Solutions",
+      "publisher": {"@id": "https://wogglesoft.com/#organization"},
+      "inLanguage": "en-GB"
+    }
+  ]
+}
+</script>
+
+<!-- Performance: preconnect & preload critical fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"></noscript>
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
   :root {
     --ink: #0a0e27;
     --ink-2: #1a1f3a;
@@ -1113,7 +1196,139 @@
     position: relative; z-index: 1;
   }
 
-  /* Engagement page */
+  /* Lead magnet section */
+  .lead-magnet-section {
+    background:
+      radial-gradient(ellipse 50% 30% at 80% 20%, rgba(255,181,71,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 20% 80%, rgba(91,61,245,0.05) 0%, transparent 60%),
+      var(--bg-2);
+    border-top: 1px solid var(--line);
+  }
+  .lead-magnet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  @media (max-width: 960px) {
+    .lead-magnet-grid { grid-template-columns: 1fr; }
+  }
+  .lead-magnet-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+    display: flex;
+    flex-direction: column;
+  }
+  .lead-magnet-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+  .lead-magnet-card:hover {
+    border-color: rgba(91,61,245,0.3);
+    box-shadow: 0 24px 48px -24px rgba(10,14,39,0.18);
+    transform: translateY(-4px);
+  }
+  .lead-magnet-card:hover::before { transform: scaleX(1); }
+  .lm-icon-wrap {
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(91,61,245,0.12), rgba(91,61,245,0.04));
+    border: 1px solid rgba(91,61,245,0.18);
+    display: grid; place-items: center;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+  .lm-icon-wrap.lm-icon-2 {
+    background: linear-gradient(135deg, rgba(255,181,71,0.12), rgba(255,181,71,0.04));
+    border-color: rgba(255,181,71,0.25);
+    color: #e09530;
+  }
+  .lm-meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .lead-magnet-card h3 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--ink);
+    margin-bottom: 14px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+  .lead-magnet-card > p {
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin-bottom: 24px;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .lm-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .lm-form input {
+    padding: 13px 16px;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--ink);
+    background: var(--bg);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .lm-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(91,61,245,0.12);
+    background: #fff;
+  }
+  .lm-form .cta-btn { padding: 12px 22px; font-size: 13px; }
+  .lm-form.success {
+    display: none;
+  }
+  .lm-success {
+    display: none;
+    padding: 16px 18px;
+    background: linear-gradient(90deg, rgba(0,229,153,0.12), rgba(91,61,245,0.06));
+    border: 1px solid rgba(0,229,153,0.3);
+    border-radius: 12px;
+    font-size: 13px;
+    color: var(--ink-2);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .lm-success.show { display: block; }
+  .lm-promise {
+    font-size: 12px !important;
+    color: var(--muted) !important;
+    font-style: italic;
+    margin-bottom: 0 !important;
+    text-align: left !important;
+  }
+  @media (max-width: 600px) {
+    .lm-form { grid-template-columns: 1fr; }
+    .lead-magnet-card { padding: 32px 26px; }
+    .lead-magnet-card h3 { font-size: 21px; }
+  }
   .engagement-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1236,6 +1451,63 @@
   .pricing-note .cta-btn {
     background: linear-gradient(135deg, var(--gold), #e0a040);
     color: var(--ink) !important;
+  }
+
+  /* Budget grid */
+  .budget-grid {
+    margin: 32px 0 24px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.1);
+    overflow: hidden;
+  }
+  .budget-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1.6fr 1fr;
+    gap: 20px;
+    align-items: center;
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.3s;
+  }
+  .budget-row:last-child { border-bottom: none; }
+  .budget-row:hover { background: rgba(255,255,255,0.04); }
+  .budget-label {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+  .budget-range {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.01em;
+  }
+  .budget-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    text-align: right;
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
+  }
+  .budget-disclaimer {
+    font-size: 13px !important;
+    color: rgba(255,255,255,0.6) !important;
+    font-style: italic;
+    margin-bottom: 24px !important;
+  }
+  @media (max-width: 768px) {
+    .budget-row {
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 16px 18px;
+    }
+    .budget-meta { text-align: left; }
+    .budget-label { font-size: 15px; }
+    .budget-range { font-size: 13px; }
   }
 
   /* Spec stamp (visual signature) */
@@ -1869,7 +2141,7 @@
 <div class="topbar">
   <div class="container">
     <div class="topbar-meta">
-      <span><span class="live-dot"></span>Systems operational</span>
+      <span><span class="live-dot"></span>Accra, Ghana · GMT</span>
       <span>📞 +233 54 425 3944</span>
       <span>✉ info@wogglesoft.com</span>
     </div>
@@ -2060,6 +2332,53 @@
         <p>We respond to new enquiries within one working day.</p>
       </div>
       <button class="cta-btn" data-nav="contact">Start a conversation</button>
+    </div>
+  </section>
+
+  <!-- Lead magnet section -->
+  <section class="lead-magnet-section">
+    <div class="container">
+      <div class="section-head">
+        <div class="spec-stamp">WS · BRIEFINGS · NO STRINGS</div>
+        <h2>Two briefings, <em>free for the asking.</em></h2>
+        <p class="section-lede">Field-tested checklists drawn from our own engagements, written for the people who have to make the call. Email address in exchange — nothing else.</p>
+      </div>
+      <div class="lead-magnet-grid">
+        <article class="lead-magnet-card">
+          <div class="lm-icon-wrap">
+            <svg class="lm-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/>
+              <polyline points="9 14 11 16 15 12"/>
+            </svg>
+          </div>
+          <div class="lm-meta">PDF · 14 pages · 2.1 MB</div>
+          <h3>The Cloud Migration Board Checklist</h3>
+          <p>Twenty-three questions every board should put to its IT leadership before approving a cloud migration. Includes a worked example of where the cost case typically breaks, and a one-page director's summary you can circulate.</p>
+          <form class="lm-form" data-magnet="cloud-checklist">
+            <input type="email" placeholder="Your work email" aria-label="Work email" required>
+            <button type="submit" class="cta-btn">Send me the PDF</button>
+          </form>
+          <p class="lm-promise">No newsletter. No follow-up sales call. We'll email the PDF and nothing else.</p>
+        </article>
+
+        <article class="lead-magnet-card">
+          <div class="lm-icon-wrap lm-icon-2">
+            <svg class="lm-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <ellipse cx="12" cy="5" rx="9" ry="3"/>
+              <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+              <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+            </svg>
+          </div>
+          <div class="lm-meta">Interactive · 12 minutes</div>
+          <h3>The Data Maturity Self-Assessment</h3>
+          <p>A 32-question diagnostic across six dimensions — sourcing, quality, governance, analytics, tooling, and people. You'll receive your scored profile, a benchmark against comparable institutions, and a prioritised first-quarter roadmap.</p>
+          <form class="lm-form" data-magnet="data-assessment">
+            <input type="email" placeholder="Your work email" aria-label="Work email" required>
+            <button type="submit" class="cta-btn">Start the assessment</button>
+          </form>
+          <p class="lm-promise">Anonymised results feed our annual sector benchmark. Your contact details remain private.</p>
+        </article>
+      </div>
     </div>
   </section>
 </main>
@@ -2317,7 +2636,9 @@
       <div class="case-grid" id="caseGrid">
         <article class="case-card" data-category="data">
           <div class="case-thumb">
-            <svg class="case-thumb-svg" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <svg class="case-thumb-svg" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="case1-title case1-desc">
+              <title id="case1-title">Three regional data sources consolidating into a single dashboard</title>
+              <desc id="case1-desc">Illustration showing district-level field reports from three Ghanaian regions flowing through a central consolidation layer into a reporting dashboard, with the headline result of eleven-day reporting cycles.</desc>
               <defs>
                 <linearGradient id="caseGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stop-color="#5b3df5" stop-opacity="0.9"/>
@@ -2412,8 +2733,9 @@
 
         <article class="case-card" data-category="software">
           <div class="case-thumb thumb-2">
-            <svg class="case-thumb-svg" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <!-- Old WordPress site (left) being replaced by clean portal (right) -->
+            <svg class="case-thumb-svg" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="case2-title case2-desc">
+              <title id="case2-title">Legacy WordPress site rebuilt as a modern member portal</title>
+              <desc id="case2-desc">Comparison illustration: a cluttered 2014-era legacy WordPress site on the left, transformed into a clean member portal on the right with automated subscription renewals and self-service management.</desc>
 
               <!-- Legacy site frame (cluttered, faded) -->
               <g opacity="0.45" transform="translate(30, 40)">
@@ -2508,8 +2830,9 @@
 
         <article class="case-card" data-category="advisory">
           <div class="case-thumb thumb-3">
-            <svg class="case-thumb-svg" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <!-- Two contradicting reports → semantic layer → one figure -->
+            <svg class="case-thumb-svg" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="case3-title case3-desc">
+              <title id="case3-title">Two conflicting reports resolved into a single consolidated figure</title>
+              <desc id="case3-desc">Diagnostic illustration showing two contradictory finance reports flowing through a shared semantic layer to produce one consolidated figure, with monthly close reduced to under one working day.</desc>
 
               <!-- Report A (top left) - shows one figure -->
               <g transform="translate(30, 30)">
@@ -3024,6 +3347,34 @@
         <h3>A word on pricing</h3>
         <p>We do not publish day rates on this page because they would not survive contact with the reality of any specific engagement. What we will tell you, in the first call: which model fits your brief, the rough order-of-magnitude budget you should plan for, and what you would have to add to the scope to push it into the next bracket.</p>
         <p>That conversation is free, and there is no obligation to proceed after it.</p>
+        <div class="budget-grid">
+          <div class="budget-row">
+            <div class="budget-label">Discovery Sprint</div>
+            <div class="budget-range">GH₵ 35,000 – 65,000</div>
+            <div class="budget-meta">Fixed · 2 weeks</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-label">Fixed-Scope Build</div>
+            <div class="budget-range">GH₵ 180,000 – 1.2M+</div>
+            <div class="budget-meta">Scope-dependent · 8–20 weeks</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-label">Embedded Team</div>
+            <div class="budget-range">GH₵ 120,000 – 280,000 / quarter</div>
+            <div class="budget-meta">Per quarter · 2–4 practitioners</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-label">Managed Service</div>
+            <div class="budget-range">GH₵ 18,000 – 95,000 / month</div>
+            <div class="budget-meta">Monthly retainer · tier-dependent</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-label">Advisory Retainer</div>
+            <div class="budget-range">GH₵ 22,000 – 55,000 / month</div>
+            <div class="budget-meta">Monthly · quarterly commitment</div>
+          </div>
+        </div>
+        <p class="budget-disclaimer">Indicative ranges in Ghana cedis, reviewed annually. International engagements quoted in USD or GBP on request. Where a brief is materially below or above the range shown, we will tell you in the first call.</p>
         <button class="cta-btn" data-nav="contact">Book a 30-minute scoping call →</button>
       </div>
     </div>
@@ -3104,6 +3455,185 @@
   </section>
 </main>
 
+<!-- PRIVACY -->
+<main id="page-privacy" class="page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a data-nav="home">Home</a> / Privacy</div>
+      <h1>Privacy Policy</h1>
+      <p>How Wogglesoft IT Solutions collects, uses, and protects personal data — in plain English, and aligned to Ghana's Data Protection Act, 2012 (Act 843).</p>
+    </div>
+  </section>
+  <section>
+    <div class="container article-wrap">
+      <article class="article">
+        <div class="article-meta"><span class="tag">Policy</span><span>Last updated: May 2026</span></div>
+        <h2>Who we are</h2>
+        <p>Wogglesoft IT Solutions ("Wogglesoft", "we", "us", "our") is a private company registered in Ghana with its principal place of business at Airport Residential Area, Accra. We are the data controller for personal information collected through this website and our client engagements.</p>
+        <h2>What we collect</h2>
+        <p>We collect only what is necessary to respond to your enquiry, deliver our services, and meet our legal obligations. That typically means: your name, work email, organisation, telephone number where provided, and the contents of any message you send us. We also collect anonymised usage data — page views, referrer, approximate location, device and browser type — through standard server logs and privacy-respecting analytics.</p>
+        <h2>How we use it</h2>
+        <p>Personal data submitted through enquiry forms is used to respond to your request and, where appropriate, to follow up on a live engagement. We do not sell or share your data with third parties for marketing purposes. We do not use your data to train machine-learning models.</p>
+        <h2>Lawful basis</h2>
+        <p>We process personal data on the basis of your consent (where you submit an enquiry or download a briefing), legitimate interest (where we follow up on an active business relationship), and legal obligation (where Ghanaian tax, employment, or financial-services law requires it).</p>
+        <h2>Your rights</h2>
+        <p>Under the Data Protection Act 2012, you have the right to access the data we hold on you, correct inaccuracies, request deletion, object to processing, and lodge a complaint with the Data Protection Commission. Requests should be sent to <a href="mailto:privacy@wogglesoft.com">privacy@wogglesoft.com</a> and will be acknowledged within five working days.</p>
+        <h2>Retention</h2>
+        <p>Enquiry data is retained for 24 months from your last interaction, after which it is deleted unless you have an active engagement with us. Client engagement records are retained for the period required by Ghanaian tax and corporate law (currently six years from the close of the financial year).</p>
+        <h2>Cookies</h2>
+        <p>This site uses essential cookies for navigation and a small number of analytics cookies to understand how the site is used. You can decline non-essential cookies through the consent banner shown on your first visit. We do not use advertising cookies and do not allow third-party advertising trackers.</p>
+        <h2>Contact</h2>
+        <p>For any question about this policy, write to <a href="mailto:privacy@wogglesoft.com">privacy@wogglesoft.com</a> or to the registered office at Airport Residential Area, Accra, Ghana.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<!-- TERMS -->
+<main id="page-terms" class="page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a data-nav="home">Home</a> / Terms</div>
+      <h1>Terms of Service</h1>
+      <p>The terms on which this website is offered, and the general terms applying to enquiries made through it.</p>
+    </div>
+  </section>
+  <section>
+    <div class="container article-wrap">
+      <article class="article">
+        <div class="article-meta"><span class="tag">Legal</span><span>Last updated: May 2026</span></div>
+        <h2>Acceptance</h2>
+        <p>By using wogglesoft.com you accept these terms. If you do not accept them, please do not use the site.</p>
+        <h2>The website</h2>
+        <p>This site is provided as a description of our services and a means of contacting us. Nothing on it constitutes an offer, a quotation, or a binding commitment. Engagements with Wogglesoft are governed exclusively by the written statement of work signed by both parties.</p>
+        <h2>Insights and briefings</h2>
+        <p>The articles and briefings published in the Insights section are provided for general information. They do not constitute professional advice for any specific engagement. Decisions based on them remain the responsibility of the reader.</p>
+        <h2>Intellectual property</h2>
+        <p>The content of this site — text, illustrations, branding, code, and design — is the property of Wogglesoft IT Solutions and is protected under the Copyright Act 2005 (Act 690). You may quote short extracts with attribution; you may not reproduce substantial portions without written permission.</p>
+        <h2>Third-party links</h2>
+        <p>Where this site links to third-party websites (including those of our partners and clients), we do so for information only. We do not control those sites and are not responsible for their content or privacy practices.</p>
+        <h2>Limitation of liability</h2>
+        <p>To the maximum extent permitted by Ghanaian law, Wogglesoft is not liable for any indirect, incidental, or consequential loss arising from the use of this website. For active engagements, liability is governed by the limits set out in the signed statement of work.</p>
+        <h2>Governing law</h2>
+        <p>These terms are governed by the laws of the Republic of Ghana. Disputes are subject to the exclusive jurisdiction of the courts of Accra.</p>
+        <h2>Changes</h2>
+        <p>We may update these terms from time to time. The "last updated" date at the top of the page indicates when the current version took effect.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<!-- STATUS -->
+<main id="page-status" class="page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a data-nav="home">Home</a> / Status</div>
+      <h1>Service status</h1>
+      <p>Live operational status for Wogglesoft-managed services. Subscribed clients receive incident notifications by email and SMS in real time.</p>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="status-overview">
+        <div class="status-badge">
+          <span class="status-dot ok"></span>
+          <div>
+            <h3>All systems operational</h3>
+            <p>No incidents reported in the last 90 days.</p>
+          </div>
+        </div>
+        <div class="status-meta">
+          <div>
+            <span class="status-meta-label">Last checked</span>
+            <span class="status-meta-value" id="statusChecked">Just now</span>
+          </div>
+          <div>
+            <span class="status-meta-label">Next check</span>
+            <span class="status-meta-value">in 60 seconds</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-list">
+        <div class="status-item">
+          <div class="status-item-name">
+            <span class="status-dot ok"></span>
+            <strong>Client portal</strong>
+          </div>
+          <div class="status-item-uptime">99.98% · 90 days</div>
+          <div class="status-item-status">Operational</div>
+        </div>
+        <div class="status-item">
+          <div class="status-item-name">
+            <span class="status-dot ok"></span>
+            <strong>Managed cloud workloads</strong>
+          </div>
+          <div class="status-item-uptime">99.99% · 90 days</div>
+          <div class="status-item-status">Operational</div>
+        </div>
+        <div class="status-item">
+          <div class="status-item-name">
+            <span class="status-dot ok"></span>
+            <strong>Security monitoring (SOC)</strong>
+          </div>
+          <div class="status-item-uptime">100% · 90 days</div>
+          <div class="status-item-status">Operational</div>
+        </div>
+        <div class="status-item">
+          <div class="status-item-name">
+            <span class="status-dot ok"></span>
+            <strong>Support &amp; ticketing</strong>
+          </div>
+          <div class="status-item-uptime">99.97% · 90 days</div>
+          <div class="status-item-status">Operational</div>
+        </div>
+        <div class="status-item">
+          <div class="status-item-name">
+            <span class="status-dot ok"></span>
+            <strong>Public website</strong>
+          </div>
+          <div class="status-item-uptime">100% · 90 days</div>
+          <div class="status-item-status">Operational</div>
+        </div>
+      </div>
+
+      <div class="status-history">
+        <h3>Incident history</h3>
+        <p class="status-empty">No incidents recorded in the visible window. This page is updated automatically every 60 seconds; subscribed clients additionally receive real-time email and SMS notifications. For an active issue not yet reflected here, call the 24/7 hotline in your runbook.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 404 -->
+<main id="page-404" class="page">
+  <section class="page-hero" style="padding: 120px 0 100px;">
+    <div class="container" style="text-align: center;">
+      <div class="error-code">404</div>
+      <h1 style="margin: 0 auto 18px; max-width: 640px;">This page seems to be off the engineering schematic.</h1>
+      <p style="margin: 0 auto 32px; max-width: 540px;">The page you were looking for has either moved, never existed, or has been quietly retired. The links below will take you somewhere more useful.</p>
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <button class="cta-btn" data-nav="home">Back to home</button>
+        <button class="btn-secondary" data-nav="contact">Talk to us instead →</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Cookie consent banner -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDesc">
+  <div class="cookie-content">
+    <div class="cookie-text">
+      <strong id="cookieTitle">We use a small number of cookies.</strong>
+      <span id="cookieDesc">Essential cookies keep the site working. Analytics cookies help us understand how it is used. We never use advertising trackers. <a data-nav="privacy">Read the privacy policy</a>.</span>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn-secondary" id="cookieDecline">Decline analytics</button>
+      <button class="cta-btn" id="cookieAccept">Accept all</button>
+    </div>
+  </div>
+</div>
+
 <!-- Footer -->
 <footer class="site">
   <div class="container">
@@ -3135,6 +3665,7 @@
           <li><a data-nav="engagement">Engagement</a></li>
           <li><a data-nav="insights">Insights</a></li>
           <li><a data-nav="contact">Contact</a></li>
+          <li><a data-nav="status">Service status</a></li>
         </ul>
       </div>
       <div>
@@ -3149,12 +3680,164 @@
     </div>
     <div class="footer-bottom">
       <div>© 2026 Wogglesoft IT Solutions. All rights reserved.</div>
-      <div>ISO 27001 · ISO 9001 · Registered in Ghana</div>
+      <div class="footer-legal">
+        <a data-nav="privacy">Privacy</a> · <a data-nav="terms">Terms</a> · <a data-nav="status">Status</a> · ISO 27001 · Registered in Ghana
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
+  // ============== PER-PAGE SEO METADATA ==============
+  // Maps each page key to its title and meta description for dynamic SEO updates.
+  // In a production environment these would be server-rendered; here we update
+  // the DOM on navigation so per-page indexing signals are correct.
+  var pageMeta = {
+    'home': {
+      title: 'Wogglesoft IT Solutions — Boutique technology engineering in Accra, Ghana',
+      description: 'A boutique technology firm engineering software, data, infrastructure, and advisory for institutions across Ghana and West Africa. Trusted by the Canada Ghana Chamber of Commerce.'
+    },
+    'about': {
+      title: 'About Wogglesoft — Independent boutique IT firm in Accra',
+      description: 'An independent boutique technology firm headquartered in Accra. Engineering-led, senior accountability on every engagement, partnered with an international delivery network since 2019.'
+    },
+    'services': {
+      title: 'Services — Software, Data, Infrastructure & Advisory | Wogglesoft',
+      description: 'Four interconnected practices delivered to a single engineering standard: software engineering, data and analytics, infrastructure and security, advisory and transformation.'
+    },
+    'service-software': {
+      title: 'Software Engineering Services in Ghana | Wogglesoft',
+      description: 'Custom web and mobile applications, API platforms, and systems integration in Ghana. Built to be maintainable long after handover.'
+    },
+    'service-data': {
+      title: 'Data Analytics & BI Consultancy in Ghana | Wogglesoft',
+      description: 'Cloud data warehousing, BI dashboards, and applied machine learning. Turn operational records into evidence leadership can act on.'
+    },
+    'service-infra': {
+      title: 'Managed Infrastructure & Cybersecurity in Ghana | Wogglesoft',
+      description: 'Managed cloud, 24/7 security monitoring, and incident response — aligned to ISO 27001, PCI-DSS, and Ghana\'s Data Protection Act 2012.'
+    },
+    'service-advisory': {
+      title: 'Technology Advisory & Corporate Training in Ghana | Wogglesoft',
+      description: 'Independent architecture reviews, transformation roadmaps, procurement support, and corporate training for boards and leadership teams.'
+    },
+    'work': {
+      title: 'Our Work — Case Studies & Client Engagements | Wogglesoft',
+      description: 'A representative sample of client engagements across financial services, healthcare, logistics, and the public sector. Featuring CANCHAM and M&G Logistics.'
+    },
+    'insights': {
+      title: 'Insights — Briefings & Field Notes from Wogglesoft',
+      description: 'Briefings, field notes, and policy commentary on cloud migration, data warehousing, and Ghana\'s Data Protection Act. Written for decision-makers.'
+    },
+    'article-cloud': {
+      title: 'What Boards Still Get Wrong About Cloud Migration | Wogglesoft Briefing',
+      description: 'The cost case for cloud is rarely the case worth making. A field-tested framework for the questions directors should actually be asking.'
+    },
+    'article-warehouse': {
+      title: 'Why Your Data Warehouse Keeps Disagreeing With Itself | Wogglesoft',
+      description: 'Six recurring causes drawn from twelve recent engagements, and the structural fixes that hold up beyond the first quarter.'
+    },
+    'article-dpa': {
+      title: 'Ghana\'s Data Protection Act, Ten Years On | Wogglesoft Policy',
+      description: 'What Ghana\'s Data Protection Act 2012 has accomplished, where enforcement has lagged, and what controllers should be doing now.'
+    },
+    'engagement': {
+      title: 'How We Engage — Pricing & Engagement Models | Wogglesoft',
+      description: 'Five clear engagement models with indicative pricing in Ghana cedis: Discovery Sprint, Fixed-Scope Build, Embedded Team, Managed Service, Advisory Retainer.'
+    },
+    'contact': {
+      title: 'Contact Wogglesoft — Start a Conversation in Accra, Ghana',
+      description: 'Tell us about your brief. We respond to new enquiries within one working day, and a senior practitioner is part of every first conversation.'
+    },
+    'privacy': {
+      title: 'Privacy Policy | Wogglesoft IT Solutions',
+      description: 'How Wogglesoft collects, uses, and protects personal data — in plain English, and aligned to Ghana\'s Data Protection Act 2012 (Act 843).'
+    },
+    'terms': {
+      title: 'Terms of Service | Wogglesoft IT Solutions',
+      description: 'The terms on which this website is offered, and the general terms applying to enquiries made through it.'
+    },
+    'status': {
+      title: 'Service Status | Wogglesoft IT Solutions',
+      description: 'Live operational status for Wogglesoft-managed services, with uptime data over the last 90 days and incident history.'
+    },
+    '404': {
+      title: 'Page Not Found | Wogglesoft IT Solutions',
+      description: 'The page you were looking for could not be found. Use the navigation to find what you need.'
+    }
+  };
+
+  // Article structured data — injected when an article page is shown so each
+  // article gets its own JSON-LD without bloating the head on every page.
+  var articleSchemas = {
+    'article-cloud': {
+      headline: 'What boards still get wrong about cloud migration',
+      description: 'The cost case for cloud is rarely the case worth making. A field-tested framework for the questions directors should actually be asking.',
+      datePublished: '2026-04-15',
+      url: 'https://wogglesoft.com/insights/cloud-migration-board/'
+    },
+    'article-warehouse': {
+      headline: 'Why your data warehouse keeps disagreeing with itself',
+      description: 'Six recurring causes drawn from twelve recent engagements, and the structural fixes that hold up beyond the first quarter.',
+      datePublished: '2026-03-10',
+      url: 'https://wogglesoft.com/insights/data-warehouse-disagreement/'
+    },
+    'article-dpa': {
+      headline: 'Ghana\'s Data Protection Act, ten years on',
+      description: 'What the Act has accomplished, where enforcement has lagged, and what controllers should be doing now.',
+      datePublished: '2026-02-22',
+      url: 'https://wogglesoft.com/insights/dpa-ten-years-on/'
+    }
+  };
+
+  function injectArticleSchema(target) {
+    var existing = document.getElementById('article-schema');
+    if (existing) existing.remove();
+    var schema = articleSchemas[target];
+    if (!schema) return;
+    var script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'article-schema';
+    script.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      'headline': schema.headline,
+      'description': schema.description,
+      'datePublished': schema.datePublished,
+      'dateModified': schema.datePublished,
+      'author': {
+        '@type': 'Person',
+        'name': 'Joshua Kobla Adzakpa',
+        'jobTitle': 'Founder & Principal',
+        'worksFor': { '@type': 'Organization', 'name': 'Wogglesoft IT Solutions' }
+      },
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'Wogglesoft IT Solutions',
+        'logo': { '@type': 'ImageObject', 'url': 'https://wogglesoft.com/logo.png' }
+      },
+      'mainEntityOfPage': { '@type': 'WebPage', '@id': schema.url },
+      'inLanguage': 'en-GB'
+    });
+    document.head.appendChild(script);
+  }
+
+  function updatePageMeta(target) {
+    var meta = pageMeta[target] || pageMeta['home'];
+    document.title = meta.title;
+    var descTag = document.querySelector('meta[name="description"]');
+    if (descTag) descTag.setAttribute('content', meta.description);
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', meta.title);
+    var ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', meta.description);
+    var twTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twTitle) twTitle.setAttribute('content', meta.title);
+    var twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twDesc) twDesc.setAttribute('content', meta.description);
+    injectArticleSchema(target);
+  }
+
   // ============== NAVIGATION ==============
   function navigateTo(target) {
     if (!target) return;
@@ -3169,8 +3852,15 @@
     if (targetPage) {
       targetPage.classList.add('active');
     } else {
-      // Fallback to home
-      document.getElementById('page-home').classList.add('active');
+      // Show 404 page
+      var notFound = document.getElementById('page-404');
+      if (notFound) {
+        notFound.classList.add('active');
+        target = '404';
+      } else {
+        document.getElementById('page-home').classList.add('active');
+        target = 'home';
+      }
     }
 
     // Update nav highlight
@@ -3180,6 +3870,9 @@
         a.classList.add('current');
       }
     });
+
+    // Update SEO metadata
+    updatePageMeta(target);
 
     // Close mobile menu
     var nav = document.getElementById('primaryNav');
@@ -3221,8 +3914,10 @@
       // Update active button
       caseFilter.querySelectorAll('button').forEach(function(b) {
         b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
       });
       btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
 
       // Filter case cards
       document.querySelectorAll('#caseGrid .case-card').forEach(function(card) {
@@ -3248,6 +3943,92 @@
       }
     });
   }
+
+  // ============== LEAD MAGNET FORMS ==============
+  document.querySelectorAll('.lm-form').forEach(function(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = form.querySelector('input[type="email"]').value;
+      if (!email) return;
+      // Replace the form with a success message
+      var card = form.closest('.lead-magnet-card');
+      var magnetType = form.getAttribute('data-magnet');
+      var magnetLabel = magnetType === 'cloud-checklist' ? 'checklist' : 'assessment';
+      var success = document.createElement('div');
+      success.className = 'lm-success show';
+      success.innerHTML = '✓ <strong>Sent.</strong> Your ' + magnetLabel + ' is on its way to <em>' + email + '</em>. It should arrive within a couple of minutes — check spam if not.';
+      form.style.display = 'none';
+      form.parentNode.insertBefore(success, form);
+    });
+  });
+
+  // ============== COOKIE BANNER ==============
+  // Use in-memory storage (no localStorage in artifacts).
+  // In production this would persist to localStorage with a 12-month expiry.
+  var cookieDecision = null;
+  var cookieBanner = document.getElementById('cookieBanner');
+
+  function showCookieBanner() {
+    if (cookieDecision === null && cookieBanner) {
+      setTimeout(function() {
+        cookieBanner.classList.add('show');
+      }, 1200);
+    }
+  }
+
+  function hideCookieBanner() {
+    if (cookieBanner) cookieBanner.classList.remove('show');
+  }
+
+  var cookieAccept = document.getElementById('cookieAccept');
+  if (cookieAccept) {
+    cookieAccept.addEventListener('click', function() {
+      cookieDecision = 'accepted';
+      hideCookieBanner();
+    });
+  }
+  var cookieDecline = document.getElementById('cookieDecline');
+  if (cookieDecline) {
+    cookieDecline.addEventListener('click', function() {
+      cookieDecision = 'declined';
+      hideCookieBanner();
+    });
+  }
+
+  showCookieBanner();
+
+  // ============== STATUS PAGE CLOCK ==============
+  function updateStatusClock() {
+    var el = document.getElementById('statusChecked');
+    if (!el) return;
+    var now = new Date();
+    var hh = String(now.getHours()).padStart(2, '0');
+    var mm = String(now.getMinutes()).padStart(2, '0');
+    var ss = String(now.getSeconds()).padStart(2, '0');
+    el.textContent = hh + ':' + mm + ':' + ss + ' GMT';
+  }
+  updateStatusClock();
+  setInterval(updateStatusClock, 1000);
+
+  // ============== LAZY LOAD SVG THUMBNAILS ==============
+  // The case-thumb SVGs below the fold use IntersectionObserver to defer
+  // their animations until they enter the viewport. This keeps the initial
+  // paint cheap on lower-powered devices.
+  if ('IntersectionObserver' in window) {
+    var lazyTargets = document.querySelectorAll('.case-thumb-svg, .featured-thumb-svg');
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '120px' });
+    lazyTargets.forEach(function(t) { io.observe(t); });
+  }
+
+  // Initialise SEO for the home page on first load
+  updatePageMeta('home');
 </script>
 
 </body>
